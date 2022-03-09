@@ -14,9 +14,7 @@ where role= 'seeker'
 order by lastname asc, firstname asc;
 
 
-
 SELECT w.id,firstname, lastname,role
 FROM wizard w
-inner JOIN player p ON w.id=p.wizard_id
-inner JOIN team t ON t.id=p.team_id
-where role!= 'quidditch';
+left JOIN player p ON w.id=p.wizard_id
+where role is null ;
